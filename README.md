@@ -1,1 +1,1 @@
-Vojtech Janecek
+Vojtěch Janeček
