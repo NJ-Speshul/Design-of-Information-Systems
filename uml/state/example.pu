@@ -1,0 +1,31 @@
+@startuml
+
+[*] --> A
+A --> [*]
+
+
+state Fork <<fork>>
+state Join <<join>>
+
+Fork --> B
+Fork --> C
+
+
+D --> Join
+E --> Join
+
+
+state F {
+    G --> I
+}
+
+F --> J
+
+
+state Choice <<choice>>
+
+Q --> Choice
+Choice --> K
+Choice --> L
+
+@enduml

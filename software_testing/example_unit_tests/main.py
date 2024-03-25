@@ -1,3 +1,4 @@
+import matplotlib.pylab as plt
 
 class Route():
 
@@ -27,8 +28,22 @@ class Route():
             self.get_aerial_distance(),
         )
 
+    def plot(self):
+        x = [i[0] for i in self.get_points()]
+        y = [i[1] for i in self.get_points()]
+        plt.title("Route")
+        plt.plot(x, y, "b", label=f"Total distance:  {self.get_total_distance()} km")
+        plt.plot(x, y, "or")
+        plt.plot((x[0], x[-1]), (y[0], y[-1]) , "g", label=f"Aerial distance: {self.get_aerial_distance()} km")
+        plt.legend()
+        plt.xlabel("x [km]")
+        plt.ylabel("y [km]")
+        plt.tight_layout()
+        plt.show()
+
 if __name__ == '__main__':
-    p = [(1, 1), (5, 5), (8, -10), (-1, -1), (2, 2)]
+    p = [(8, 10), (6, -3), (8, -10), (-1, 5), (-5, -4), (10, -5), (15, -7)]
     r = Route(p)
+    r.plot()
     print(r)
     print(r.get_points())
